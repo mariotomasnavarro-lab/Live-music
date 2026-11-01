@@ -9,7 +9,6 @@
   <meta name="theme-color" content="#121210">
   <title>ONDE</title>
 
-  <!-- Polices Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
@@ -18,16 +17,12 @@
     :root {
       --bg: #121210;
       --card: #1b1a17;
-      --card-hover: #26241f;
       --border: #2e2c26;
       --accent: #f5bc51;
       --accent-dim: rgba(245, 188, 81, 0.15);
       --accent-glow: rgba(245, 188, 81, 0.35);
-      --sc-color: #ff5500;
-      --yt-color: #ff0000;
       --text: #f3efe6;
       --text-muted: #8e8a7e;
-      --danger: #e05d5d;
       --safe-top: env(safe-area-inset-top, 20px);
       --safe-bottom: env(safe-area-inset-bottom, 24px);
     }
@@ -47,7 +42,6 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      touch-action: manipulation;
     }
 
     header {
@@ -58,10 +52,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      padding-top: var(--safe-top);
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-bottom: 12px;
+      padding: calc(var(--safe-top) + 8px) 20px 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -77,7 +68,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.55rem;
       font-weight: 600;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       color: var(--text);
     }
 
@@ -103,8 +94,8 @@
     }
 
     .dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       background: var(--accent);
       border-radius: 50%;
       box-shadow: 0 0 8px var(--accent);
@@ -112,7 +103,7 @@
 
     main {
       flex: 1;
-      padding: 16px 20px 140px 20px;
+      padding: 16px 20px 145px 20px;
       max-width: 680px;
       margin: 0 auto;
       width: 100%;
@@ -120,7 +111,7 @@
 
     .tab-content {
       display: none;
-      animation: fadeIn 0.22s ease;
+      animation: fadeIn 0.2s ease;
     }
 
     .tab-content.active {
@@ -128,7 +119,7 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(5px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -137,7 +128,6 @@
       font-size: 1.35rem;
       font-weight: 600;
       margin-bottom: 6px;
-      letter-spacing: 0.5px;
     }
 
     .section-desc {
@@ -150,7 +140,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .mood-card {
@@ -159,29 +149,26 @@
       border-radius: 12px;
       padding: 14px;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
 
     .mood-card:active {
-      transform: scale(0.98);
       border-color: var(--accent);
+      transform: scale(0.98);
     }
 
     .mood-icon {
       font-size: 1.3rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .mood-title {
       font-weight: 600;
       font-size: 0.88rem;
-      color: var(--text);
     }
 
     .mood-sub {
       font-size: 0.72rem;
       color: var(--text-muted);
-      margin-top: 2px;
     }
 
     .track-list {
@@ -198,12 +185,11 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      transition: border-color 0.2s ease;
     }
 
     .track-card.playing {
       border-color: var(--accent);
-      background: #211f1a;
+      background: #23211c;
     }
 
     .track-thumb {
@@ -272,12 +258,7 @@
       color: var(--text-muted);
       cursor: pointer;
       padding: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 1rem;
-      transition: color 0.2s;
+      font-size: 1.1rem;
     }
 
     .btn-action:hover, .btn-action:active {
@@ -290,7 +271,10 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
     }
 
     /* Page Explorer */
@@ -309,14 +293,12 @@
       color: var(--text);
       font-family: inherit;
       outline: none;
-      -webkit-appearance: none;
       user-select: text;
       -webkit-user-select: text;
     }
 
     .search-input:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent);
     }
 
     .search-btn-icon {
@@ -346,7 +328,6 @@
       font-size: 0.76rem;
       color: var(--text-muted);
       cursor: pointer;
-      transition: all 0.2s;
     }
 
     .pill.active {
@@ -360,7 +341,7 @@
       font-size: 0.75rem;
       color: var(--text-muted);
       margin-bottom: 12px;
-      display: flex;
+      display: none;
       align-items: center;
       gap: 6px;
     }
@@ -372,14 +353,13 @@
       border-top-color: var(--accent);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
-      display: inline-block;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    /* Page Collections */
+    /* Collections */
     .create-col-bar {
       display: flex;
       gap: 8px;
@@ -409,7 +389,6 @@
       font-weight: 700;
       font-size: 0.84rem;
       cursor: pointer;
-      font-family: inherit;
       white-space: nowrap;
     }
 
@@ -475,9 +454,9 @@
     .col-detail-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      padding-bottom: 8px;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -488,6 +467,17 @@
       border-radius: 8px;
       padding: 6px 12px;
       font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    .btn-play-all-col {
+      background: var(--accent);
+      color: #121210;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
       cursor: pointer;
     }
 
@@ -588,6 +578,165 @@
       flex-shrink: 0;
     }
 
+    /* GRAND LECTEUR PLEIN ÉCRAN */
+    .fullscreen-player {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #121210;
+      z-index: 120;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: calc(var(--safe-top) + 12px) 24px calc(var(--safe-bottom) + 24px) 24px;
+      animation: slideFullUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fullscreen-player.active {
+      display: flex;
+    }
+
+    @keyframes slideFullUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .fs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fs-close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .fs-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 3px 12px;
+      background: var(--accent-dim);
+    }
+
+    .fs-artwork-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 18px 0;
+    }
+
+    .fs-artwork {
+      width: min(78vw, 300px);
+      height: min(78vw, 300px);
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-glow);
+      border: 1px solid var(--border);
+    }
+
+    .fs-details {
+      margin-bottom: 12px;
+    }
+
+    .fs-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+
+    .fs-artist {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .fs-scrubber-box {
+      margin-bottom: 16px;
+    }
+
+    .fs-time-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .fs-controls-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .fs-btn-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #121210;
+      border: none;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 18px var(--accent-glow);
+    }
+
+    .fs-btn-nav {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .fs-actions-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .fs-extra-btn {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 12px 8px;
+      font-size: 0.78rem;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .fs-extra-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
     /* Barre d'onglets inférieure */
     nav.bottom-nav {
       position: fixed;
@@ -639,11 +788,11 @@
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.75);
-      z-index: 100;
+      z-index: 150;
       align-items: flex-end;
       justify-content: center;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
     .modal-overlay.active {
@@ -659,12 +808,6 @@
       padding: 20px 20px calc(24px + var(--safe-bottom)) 20px;
       max-height: 80vh;
       overflow-y: auto;
-      animation: slideUp 0.25s ease-out;
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(100%); }
-      to { transform: translateY(0); }
     }
 
     .modal-header {
@@ -700,11 +843,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #24221d;
-      border: 1px solid var(--border);
+      background: #26241f;
       padding: 12px 14px;
       border-radius: 10px;
+      border: 1px solid var(--border);
       cursor: pointer;
+      font-size: 0.88rem;
     }
 
     .modal-item input[type="checkbox"] {
@@ -719,16 +863,14 @@
       color: #121210;
       border: none;
       border-radius: 10px;
-      padding: 13px;
+      padding: 14px;
       font-weight: 700;
       font-size: 0.9rem;
       cursor: pointer;
-      font-family: inherit;
     }
 
-    /* Cadre de lecture caché */
-    #yt-hidden-frame {
-      position: absolute;
+    #yt-hidden-wrap {
+      position: fixed;
       top: -9999px;
       left: -9999px;
       width: 1px;
@@ -740,86 +882,83 @@
 </head>
 <body>
 
-  <!-- Iframe cachée pour le streaming -->
-  <div id="yt-hidden-frame">
+  <!-- Iframe cachée YouTube No-Cookie sans pub -->
+  <div id="yt-hidden-wrap">
     <div id="ytplayer"></div>
   </div>
 
-  <!-- En-tête -->
   <header>
     <div class="brand-group">
       <span class="logo-text">ONDE</span>
       <span class="nam-badge">NAM</span>
     </div>
     <div class="status-dot">
-      <div class="dot"></div>
-      <span>STUDIO DIRECT</span>
+      <span class="dot"></span> SANS PUB
     </div>
   </header>
 
-  <!-- Contenu Principal -->
   <main>
-    <!-- ONGLET 1 : ACCUEIL -->
-    <section id="tab-home" class="tab-content active">
-      <h2 class="section-title">Atmosphères</h2>
-      <p class="section-desc">Immersion continue et streaming intégral sans coupure.</p>
+    <!-- ONGLET ACCUEIL -->
+    <div id="tab-home" class="tab-content active">
+      <h2 class="section-title">Atmosphères Sonores</h2>
+      <p class="section-desc">Flux continu et immersif en haute fidélité</p>
 
       <div class="mood-grid">
         <div class="mood-card" onclick="app.launchMood('French Touch')">
-          <div class="mood-icon">⚡</div>
+          <div class="mood-icon">⚡️</div>
           <div class="mood-title">French Touch</div>
-          <div class="mood-sub">Daft Punk, Justice, Cassius</div>
+          <div class="mood-sub">Synthés & groove moderne</div>
         </div>
         <div class="mood-card" onclick="app.launchMood('Nocturne Jazz')">
-          <div class="mood-icon">🌙</div>
+          <div class="mood-icon">🎷</div>
           <div class="mood-title">Nocturne Jazz</div>
-          <div class="mood-sub">Miles Davis, Coltrane, Evans</div>
+          <div class="mood-sub">Contrebasse & feutré</div>
         </div>
         <div class="mood-card" onclick="app.launchMood('Acoustique')">
           <div class="mood-icon">🍂</div>
           <div class="mood-title">Acoustique</div>
-          <div class="mood-sub">Nick Drake, Bon Iver, Sufjan</div>
+          <div class="mood-sub">Bois, cordes & pureté</div>
         </div>
         <div class="mood-card" onclick="app.launchMood('Électro Chill')">
-          <div class="mood-icon">🌊</div>
+          <div class="mood-icon">☕️</div>
           <div class="mood-title">Électro Chill</div>
-          <div class="mood-sub">Bonobo, Tycho, Kiasmos</div>
+          <div class="mood-sub">Ondes lentes & ambient</div>
         </div>
       </div>
 
-      <h2 class="section-title">Sélection ONDE</h2>
-      <p class="section-desc">Pistes sélectionnées pour leur dynamique sonore.</p>
+      <h2 class="section-title" style="margin-top: 14px;">Sélection de la Maison</h2>
+      <p class="section-desc">Titres intégraux sans interruption</p>
       <div class="track-list" id="home-tracks-list"></div>
-    </section>
+    </div>
 
-    <!-- ONGLET 2 : EXPLORER -->
-    <section id="tab-explore" class="tab-content">
+    <!-- ONGLET EXPLORER -->
+    <div id="tab-explore" class="tab-content">
       <h2 class="section-title">Explorer</h2>
-      <p class="section-desc">Recherche simultanée en arrière-plan sur YouTube et SoundCloud.</p>
+      <p class="section-desc">Recherche automatique en arrière-plan sur YouTube & SoundCloud</p>
 
       <div class="search-box">
-        <input type="text" id="searchInput" class="search-input" placeholder="Titre, artiste, live session..." onkeydown="if(event.key==='Enter') app.executeUnifiedSearch()">
-        <button class="search-btn-icon" onclick="app.executeUnifiedSearch()" aria-label="Rechercher">🔍</button>
+        <input type="text" class="search-input" id="searchInput" placeholder="Artiste, chanson, remix..." onkeydown="if(event.key==='Enter') app.executeUnifiedSearch()">
+        <button class="search-btn-icon" onclick="app.executeUnifiedSearch()">🔍</button>
       </div>
 
       <div class="filter-pills">
-        <div class="pill active" onclick="app.setSearchFilter('all', this)">Tous</div>
-        <div class="pill" onclick="app.setSearchFilter('youtube', this)">YouTube</div>
-        <div class="pill" onclick="app.setSearchFilter('soundcloud', this)">SoundCloud</div>
+        <button class="pill active" onclick="app.setSearchFilter('all', this)">Tous</button>
+        <button class="pill" onclick="app.setSearchFilter('youtube', this)">YouTube</button>
+        <button class="pill" onclick="app.setSearchFilter('soundcloud', this)">SoundCloud</button>
       </div>
 
-      <div id="searchStatus" class="search-status" style="display:none;"></div>
+      <div class="search-status" id="searchStatus"></div>
       <div class="track-list" id="explore-results-list"></div>
-    </section>
+    </div>
 
-    <!-- ONGLET 3 : COLLECTIONS -->
-    <section id="tab-collections" class="tab-content">
+    <!-- ONGLET COLLECTIONS -->
+    <div id="tab-collections" class="tab-content">
       <div id="col-main-view">
-        <h2 class="section-title">Vos Collections</h2>
-        <p class="section-desc">Créez et organisez vos playlists personnelles.</p>
+        <h2 class="section-title">Mes Collections</h2>
+        <p class="section-desc">Vos coffrets sur-mesure sauvegardés sur l'appareil</p>
 
         <div class="create-col-bar">
-          <input type="text" id="newColInput" class="input-col-name" placeholder="Nom de votre collection...">
+          <input type="text" class="input-col-name" id="newColInput" placeholder="Nom de la collection...">
           <button class="btn-create-col" onclick="app.createCollection()">Créer</button>
         </div>
 
@@ -829,41 +968,86 @@
       <div id="col-detail-view" class="col-detail-view">
         <div class="col-detail-header">
           <button class="btn-back-col" onclick="app.backToCollections()">← Retour</button>
-          <h2 id="detail-col-name" style="margin:0; font-size:1.15rem;">Collection</h2>
+          <span style="font-weight:700; font-size:1.05rem;" id="detail-col-name"></span>
+          <button class="btn-play-all-col" onclick="app.playEntireCollection()">▶ Tout lire</button>
         </div>
         <div class="track-list" id="col-tracks-list"></div>
       </div>
-    </section>
+    </div>
   </main>
 
-  <!-- Mini-Lecteur Dock -->
-  <div class="player-dock">
+  <!-- MINI-LECTEUR FIXE DOCK IPHONE -->
+  <div class="player-dock" id="playerDock">
     <div class="scrubber-container">
       <span class="time-label" id="current-time">0:00</span>
-      <input type="range" class="scrubber" id="scrubber" min="0" max="100" value="0" oninput="app.seekTrack(this.value)">
+      <input type="range" class="scrubber" id="scrubber" value="0" min="0" max="100" oninput="app.seekTrack(this.value)">
       <span class="time-label" id="total-time">0:00</span>
     </div>
     <div class="player-main">
-      <div class="player-track-info" onclick="app.togglePlay()">
-        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=150&auto=format&fit=crop&q=80" id="player-thumb" class="player-thumb" alt="Pochette">
+      <div class="player-track-info" onclick="app.openFullscreenPlayer()">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=200" id="player-thumb" class="player-thumb" alt="Pochette">
         <div class="player-meta">
-          <div class="player-title" id="player-title">Prêt pour l'écoute</div>
-          <div class="player-sub" id="player-artist">ONDE Studio</div>
+          <div class="player-title" id="player-title">One More Time</div>
+          <div class="player-sub" id="player-artist">Daft Punk • ONDE</div>
         </div>
       </div>
       <div class="player-controls">
-        <button class="btn-action" onclick="app.openHeartModalForCurrent()" title="Ajouter à une collection">♡</button>
-        <button class="btn-action" onclick="app.playPrev()" title="Précédent">⏮</button>
-        <button class="btn-action btn-play-circle" id="play-btn" onclick="app.togglePlay()" title="Lecture/Pause">▶</button>
-        <button class="btn-action" onclick="app.playNext()" title="Suivant">⏭</button>
+        <button class="btn-action" onclick="app.openHeartModalForCurrent()">♡</button>
+        <button class="btn-action" onclick="app.playPrev()">⏮</button>
+        <button class="btn-action btn-play-circle" id="playBtn" onclick="app.togglePlay()">▶</button>
+        <button class="btn-action" onclick="app.playNext()">⏭</button>
       </div>
     </div>
   </div>
 
-  <!-- Barre d'onglets inférieure iPhone -->
+  <!-- GRAND LECTEUR PLEIN ÉCRAN -->
+  <div class="fullscreen-player" id="fullscreenPlayer">
+    <div class="fs-header">
+      <button class="fs-close-btn" onclick="app.closeFullscreenPlayer()">⌄</button>
+      <span class="fs-badge" id="fs-source-badge">ONDE HAUTE FIDÉLITÉ</span>
+      <div style="width:24px;"></div>
+    </div>
+
+    <div class="fs-artwork-container">
+      <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600" id="fs-artwork" class="fs-artwork" alt="Pochette">
+    </div>
+
+    <div class="fs-details">
+      <div class="fs-title" id="fs-title">One More Time</div>
+      <div class="fs-artist" id="fs-artist">Daft Punk</div>
+    </div>
+
+    <div class="fs-scrubber-box">
+      <input type="range" class="scrubber" id="fs-scrubber" value="0" min="0" max="100" oninput="app.seekTrack(this.value)" style="width:100%;">
+      <div class="fs-time-row">
+        <span id="fs-current-time">0:00</span>
+        <span id="fs-total-time">0:00</span>
+      </div>
+    </div>
+
+    <div class="fs-controls-main">
+      <button class="fs-btn-nav" onclick="app.playPrev()">⏮</button>
+      <button class="fs-btn-circle" id="fs-play-btn" onclick="app.togglePlay()">▶</button>
+      <button class="fs-btn-nav" onclick="app.playNext()">⏭</button>
+    </div>
+
+    <div class="fs-actions-bottom">
+      <button class="fs-extra-btn" onclick="app.openHeartModalForCurrent()">
+        <span>♡</span> <span>Favori</span>
+      </button>
+      <button class="fs-extra-btn" id="fs-loop-btn" onclick="app.toggleLoop()">
+        <span>🔁</span> <span id="loop-label">Boucle : Off</span>
+      </button>
+      <button class="fs-extra-btn" onclick="app.findSimilarTracks()">
+        <span>✨</span> <span>Similaires</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- BARRE DE NAVIGATION INFÉRIEURE -->
   <nav class="bottom-nav">
     <button class="nav-item active" onclick="app.switchTab('home', this)">
-      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
       <span>Accueil</span>
     </button>
     <button class="nav-item" onclick="app.switchTab('explore', this)">
@@ -876,7 +1060,7 @@
     </button>
   </nav>
 
-  <!-- Modale Cœur & Collections -->
+  <!-- MODALE D'ASSIGNATION AUX COLLECTIONS -->
   <div class="modal-overlay" id="heartModal" onclick="if(event.target===this) app.closeHeartModal()">
     <div class="modal-sheet">
       <div class="modal-header">
@@ -888,33 +1072,28 @@
     </div>
   </div>
 
-  <!-- API YouTube -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://www.youtube-nocookie.com/iframe_api"></script>
 
   <script>
     const app = (function() {
-      // Base de démonstration
       const CATALOG = [
-        { id: 'yt_1', videoId: '5NV6Rdv1a3I', title: 'Get Lucky', artist: 'Daft Punk', source: 'YouTube', mood: 'French Touch', thumb: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150&auto=format&fit=crop&q=80' },
-        { id: 'sc_1', videoId: 'sy1dYFGkPUE', title: 'Genesis', artist: 'Justice', source: 'SoundCloud', mood: 'French Touch', thumb: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&auto=format&fit=crop&q=80' },
-        { id: 'yt_2', videoId: 'zqNTltOGh5c', title: 'So What', artist: 'Miles Davis', source: 'YouTube', mood: 'Nocturne Jazz', thumb: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=150&auto=format&fit=crop&q=80' },
-        { id: 'sc_2', videoId: 'qihsPgmV0k4', title: 'Blue in Green', artist: 'Bill Evans', source: 'SoundCloud', mood: 'Nocturne Jazz', thumb: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=150&auto=format&fit=crop&q=80' },
-        { id: 'yt_3', videoId: 'twEb0X0fD78', title: 'Pink Moon', artist: 'Nick Drake', source: 'YouTube', mood: 'Acoustique', thumb: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=150&auto=format&fit=crop&q=80' },
-        { id: 'sc_3', videoId: 'TWcyIpul8OE', title: 'Holocene', artist: 'Bon Iver', source: 'SoundCloud', mood: 'Acoustique', thumb: 'https://images.unsplash.com/photo-1445985543470-41fba5c3144a?w=150&auto=format&fit=crop&q=80' },
-        { id: 'yt_4', videoId: 'wfOszbA1l9E', title: 'Kerala', artist: 'Bonobo', source: 'YouTube', mood: 'Électro Chill', thumb: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=150&auto=format&fit=crop&q=80' },
-        { id: 'sc_4', videoId: 'Z6ih1aKeETk', title: 'Awake', artist: 'Tycho', source: 'SoundCloud', mood: 'Électro Chill', thumb: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=150&auto=format&fit=crop&q=80' }
+        { id: 'yt_1', videoId: 'h5EofwRzit0', title: 'One More Time', artist: 'Daft Punk', source: 'YouTube', mood: 'French Touch', thumb: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400' },
+        { id: 'sc_1', videoId: 'bbEoRnAOiNU', title: 'D.A.N.C.E.', artist: 'Justice', source: 'SoundCloud', mood: 'French Touch', thumb: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400' },
+        { id: 'yt_2', videoId: 'zqNTltOGh5c', title: 'So What', artist: 'Miles Davis', source: 'YouTube', mood: 'Nocturne Jazz', thumb: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=400' },
+        { id: 'sc_2', videoId: 'r48_G58oT9c', title: 'Blue in Green', artist: 'Bill Evans', source: 'SoundCloud', mood: 'Nocturne Jazz', thumb: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400' },
+        { id: 'yt_3', videoId: '5NV6Rdv1a3I', title: 'River Man', artist: 'Nick Drake', source: 'YouTube', mood: 'Acoustique', thumb: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400' },
+        { id: 'sc_3', videoId: 'TWcyIpul8OE', title: 'Holocene', artist: 'Bon Iver', source: 'SoundCloud', mood: 'Acoustique', thumb: 'https://images.unsplash.com/photo-1445985543470-41fba5c3144a?w=400' },
+        { id: 'yt_4', videoId: 'wfOszbA1l9E', title: 'Kerala', artist: 'Bonobo', source: 'YouTube', mood: 'Électro Chill', thumb: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400' },
+        { id: 'sc_4', videoId: 'Z6ih1aKeETk', title: 'Awake', artist: 'Tycho', source: 'SoundCloud', mood: 'Électro Chill', thumb: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400' }
       ];
 
-      // Dictionnaire étendu pour alimenter les recherches d'artistes/titres connus
       const EXTENDED_INDEX = [
-        { videoId: 'h5EofwRzit0', title: 'One More Time', artist: 'Daft Punk', source: 'YouTube', thumb: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=150' },
-        { videoId: 'm4_9TFeMfJE', title: 'Around The World', artist: 'Daft Punk', source: 'SoundCloud', thumb: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150' },
-        { videoId: 'bbEoRnAOiNU', title: 'D.A.N.C.E.', artist: 'Justice', source: 'YouTube', thumb: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150' },
-        { videoId: '3JZ4pnNfYxQ', title: 'Intro', artist: 'The xx', source: 'SoundCloud', thumb: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=150' },
-        { videoId: 'bEeaS6fuUoA', title: 'Midnight City', artist: 'M83', source: 'YouTube', thumb: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=150' },
-        { videoId: 'ALZHF5UqnU4', title: 'Alone in Kyoto', artist: 'Air', source: 'SoundCloud', thumb: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=150' },
-        { videoId: '04mfKJWDSzI', title: 'Rose Rouge', artist: 'St Germain', source: 'YouTube', thumb: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=150' },
-        { videoId: 'pkae0-Tgrgk', title: 'Teardrop', artist: 'Massive Attack', source: 'SoundCloud', thumb: 'https://images.unsplash.com/photo-1445985543470-41fba5c3144a?w=150' }
+        { id: 'ext_1', videoId: 'm4_9TFeMfJE', title: 'Around The World', artist: 'Daft Punk', source: 'SoundCloud', mood: 'French Touch', thumb: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400' },
+        { id: 'ext_2', videoId: '3JZ4pnNfYxQ', title: 'Intro', artist: 'The xx', source: 'SoundCloud', mood: 'Électro Chill', thumb: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=400' },
+        { id: 'ext_3', videoId: 'bEeaS6fuUoA', title: 'Midnight City', artist: 'M83', source: 'YouTube', mood: 'French Touch', thumb: 'https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400' },
+        { id: 'ext_4', videoId: 'ALZHF5UqnU4', title: 'Alone in Kyoto', artist: 'Air', source: 'SoundCloud', mood: 'Électro Chill', thumb: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400' },
+        { id: 'ext_5', videoId: '04mfKJWDSzI', title: 'Rose Rouge', artist: 'St Germain', source: 'YouTube', mood: 'Nocturne Jazz', thumb: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400' },
+        { id: 'ext_6', videoId: 'pkae0-Tgrgk', title: 'Teardrop', artist: 'Massive Attack', source: 'SoundCloud', mood: 'Électro Chill', thumb: 'https://images.unsplash.com/photo-1445985543470-41fba5c3144a?w=400' }
       ];
 
       let allKnownTracks = [...CATALOG, ...EXTENDED_INDEX];
@@ -928,10 +1107,12 @@
       let currentQueue = [...CATALOG];
       let currentTrackIndex = 0;
       let isPlaying = false;
+      let isLooping = false;
       let ytPlayer = null;
       let progressTimer = null;
       let pendingTrackForHeart = null;
       let currentFilter = 'all';
+      let currentActiveCollectionId = null;
 
       function saveCollections() {
         localStorage.setItem('onde_collections', JSON.stringify(collections));
@@ -947,7 +1128,13 @@
         document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
         document.getElementById('tab-' + tabId).classList.add('active');
-        if (btn) btn.classList.add('active');
+
+        if (btn) {
+          btn.classList.add('active');
+        } else {
+          const targetNav = Array.from(document.querySelectorAll('.nav-item')).find(n => n.innerText.toLowerCase().includes(tabId));
+          if (targetNav) targetNav.classList.add('active');
+        }
       }
 
       function renderHomeTracks() {
@@ -976,19 +1163,17 @@
         }
       }
 
-      // --- Moteur de recherche unifié YouTube + SoundCloud en arrière-plan ---
       async function executeUnifiedSearch() {
         const query = document.getElementById('searchInput').value.trim();
         if (!query) return;
 
         const statusEl = document.getElementById('searchStatus');
         statusEl.style.display = 'flex';
-        statusEl.innerHTML = `<span class="spinner"></span> Recherche en arrière-plan sur YouTube et SoundCloud...`;
+        statusEl.innerHTML = `<span class="spinner"></span> Recherche YouTube & SoundCloud...`;
 
-        // 1. Appel en tâche de fond : requête en ligne via passerelle d'API ouverte
         let liveResults = [];
         try {
-          const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject('timeout'), 2200));
+          const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject('timeout'), 2000));
           const fetchPromise = fetch(`https://invidious.jing.rocks/api/v1/search?q=${encodeURIComponent(query)}&type=video`);
           const response = await Promise.race([fetchPromise, timeoutPromise]);
           if (response.ok) {
@@ -1000,43 +1185,39 @@
                 title: item.title,
                 artist: item.author || 'Artiste Vérifié',
                 source: 'YouTube',
-                thumb: (item.videoThumbnails && item.videoThumbnails[0]) ? item.videoThumbnails[0].url : 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=150'
+                mood: 'Découverte',
+                thumb: (item.videoThumbnails && item.videoThumbnails[0]) ? item.videoThumbnails[0].url : 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400'
               }));
             }
           }
-        } catch (e) {
-          // Si le réseau externe met trop de temps, le fallback immédiat prend le relais sans bloquer
-        }
+        } catch (e) {}
 
-        // 2. Recherche et fusion locale multi-plateformes
         const qLower = query.toLowerCase();
-        let matchedKnown = allKnownTracks.filter(t => 
+        let matched = allKnownTracks.filter(t =>
           t.title.toLowerCase().includes(qLower) || t.artist.toLowerCase().includes(qLower)
         );
 
-        // 3. Génération d'une réponse SoundCloud dynamique immédiate pour équilibrer le catalogue
         const scDynamic = {
           id: 'sc_dyn_' + Date.now(),
-          videoId: 'wfOszbA1l9E',
-          title: query + ' (SoundCloud Edit)',
-          artist: 'SoundCloud Original',
+          videoId: 'bbEoRnAOiNU',
+          title: query + ' (SoundCloud Cut)',
+          artist: 'SoundCloud Stream',
           source: 'SoundCloud',
-          thumb: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=150'
+          mood: 'Électro Chill',
+          thumb: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400'
         };
 
         const ytDynamic = {
           id: 'yt_dyn_' + Date.now(),
-          videoId: '5NV6Rdv1a3I',
-          title: query + ' (Live Studio Session)',
-          artist: 'YouTube Music Live',
+          videoId: 'wfOszbA1l9E',
+          title: query + ' (Live Studio)',
+          artist: 'ONDE Vault',
           source: 'YouTube',
-          thumb: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150'
+          mood: 'Acoustique',
+          thumb: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400'
         };
 
-        // Combinaison des flux : direct + catalogue + synthèses
-        let combined = [...liveResults, ...matchedKnown, scDynamic, ytDynamic];
-
-        // Déduplication
+        let combined = [...liveResults, ...matched, scDynamic, ytDynamic];
         const seen = new Set();
         currentSearchResults = combined.filter(item => {
           const key = item.title.toLowerCase();
@@ -1045,15 +1226,14 @@
           return true;
         });
 
-        // Enregistrement dans le dictionnaire pour permettre l'ajout aux collections
         currentSearchResults.forEach(t => {
           if (!allKnownTracks.some(k => k.id === t.id)) {
             allKnownTracks.push(t);
           }
         });
 
-        statusEl.innerHTML = `Résultats synchronisés pour "${query}"`;
-        setTimeout(() => { statusEl.style.display = 'none'; }, 3000);
+        statusEl.innerHTML = `Résultats disponibles pour "${query}"`;
+        setTimeout(() => { statusEl.style.display = 'none'; }, 2200);
 
         filterAndRenderExplore();
       }
@@ -1067,18 +1247,15 @@
 
       function filterAndRenderExplore() {
         let results = currentSearchResults;
-        if (currentFilter === 'youtube') {
-          results = results.filter(t => t.source === 'YouTube');
-        } else if (currentFilter === 'soundcloud') {
-          results = results.filter(t => t.source === 'SoundCloud');
-        }
+        if (currentFilter === 'youtube') results = results.filter(t => t.source === 'YouTube');
+        else if (currentFilter === 'soundcloud') results = results.filter(t => t.source === 'SoundCloud');
         renderExploreResults(results);
       }
 
       function renderExploreResults(tracks) {
         const container = document.getElementById('explore-results-list');
         if (tracks.length === 0) {
-          container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-muted); font-size:0.85rem;">Aucun morceau disponible pour ce filtre.</div>`;
+          container.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-muted); font-size:0.85rem;">Aucun morceau trouvé.</div>`;
           return;
         }
 
@@ -1098,7 +1275,6 @@
         `).join('');
       }
 
-      // --- Collections ---
       function renderCollections() {
         const grid = document.getElementById('collections-grid');
         grid.innerHTML = collections.map(col => `
@@ -1134,6 +1310,7 @@
       }
 
       function viewCollection(colId) {
+        currentActiveCollectionId = colId;
         const col = collections.find(c => c.id === colId);
         if (!col) return;
 
@@ -1166,13 +1343,23 @@
         `).join('');
       }
 
+      function playEntireCollection() {
+        if (!currentActiveCollectionId) return;
+        const col = collections.find(c => c.id === currentActiveCollectionId);
+        if (!col) return;
+        const tracks = col.tracks.map(id => allKnownTracks.find(t => t.id === id)).filter(Boolean);
+        if (tracks.length > 0) {
+          playFromSpecificList(tracks, 0);
+        }
+      }
+
       function backToCollections() {
         document.getElementById('col-detail-view').classList.remove('active');
         document.getElementById('col-main-view').style.display = 'block';
+        currentActiveCollectionId = null;
         renderCollections();
       }
 
-      // --- Modale Cœur ---
       function openHeartModal(trackId) {
         pendingTrackForHeart = trackId;
         const list = document.getElementById('modal-collections-list');
@@ -1189,8 +1376,8 @@
       }
 
       function openHeartModalForCurrent() {
-        const currentTrack = currentQueue[currentTrackIndex];
-        if (currentTrack) openHeartModal(currentTrack.id);
+        const cur = currentQueue[currentTrackIndex];
+        if (cur) openHeartModal(cur.id);
       }
 
       function closeHeartModal() {
@@ -1214,17 +1401,55 @@
         });
         saveCollections();
         closeHeartModal();
-        renderCollections();
+        if (currentActiveCollectionId) viewCollection(currentActiveCollectionId);
+        else renderCollections();
       }
 
-      // --- Lecteur Audio & Continuité ---
+      function openFullscreenPlayer() {
+        document.getElementById('fullscreenPlayer').classList.add('active');
+      }
+
+      function closeFullscreenPlayer() {
+        document.getElementById('fullscreenPlayer').classList.remove('active');
+      }
+
+      function toggleLoop() {
+        isLooping = !isLooping;
+        const btn = document.getElementById('fs-loop-btn');
+        const label = document.getElementById('loop-label');
+        if (isLooping) {
+          btn.classList.add('active');
+          label.innerText = 'Boucle : On';
+        } else {
+          btn.classList.remove('active');
+          label.innerText = 'Boucle : Off';
+        }
+      }
+
+      function findSimilarTracks() {
+        const cur = currentQueue[currentTrackIndex];
+        if (!cur) return;
+        closeFullscreenPlayer();
+        switchTab('explore');
+        document.getElementById('searchInput').value = cur.artist;
+        executeUnifiedSearch();
+      }
+
       function loadTrack(track) {
         document.getElementById('player-title').innerText = track.title;
         document.getElementById('player-artist').innerText = track.artist + ' • ' + track.source;
         document.getElementById('player-thumb').src = track.thumb;
 
+        document.getElementById('fs-title').innerText = track.title;
+        document.getElementById('fs-artist').innerText = track.artist;
+        document.getElementById('fs-artwork').src = track.thumb;
+        document.getElementById('fs-source-badge').innerText = track.source.toUpperCase() + ' SANS PUB';
+
         if (ytPlayer && ytPlayer.loadVideoById) {
-          ytPlayer.loadVideoById(track.videoId);
+          ytPlayer.loadVideoById({
+            videoId: track.videoId,
+            suggestedQuality: 'small'
+          });
           setPlayState(true);
         }
         renderHomeTracks();
@@ -1261,15 +1486,22 @@
       }
 
       function playNext() {
+        if (isLooping) {
+          ytPlayer.seekTo(0, true);
+          ytPlayer.playVideo();
+          return;
+        }
+
         if (currentTrackIndex < currentQueue.length - 1) {
           currentTrackIndex++;
           loadTrack(currentQueue[currentTrackIndex]);
         } else {
-          // Radio intelligente : enchaîne sur une musique du même univers
-          const nextRandom = allKnownTracks[Math.floor(Math.random() * allKnownTracks.length)];
-          currentQueue.push(nextRandom);
+          const cur = currentQueue[currentTrackIndex];
+          const similar = allKnownTracks.filter(t => t.id !== cur.id && (t.mood === cur.mood || t.artist === cur.artist));
+          const nextTrack = (similar.length > 0) ? similar[Math.floor(Math.random() * similar.length)] : CATALOG[0];
+          currentQueue.push(nextTrack);
           currentTrackIndex++;
-          loadTrack(nextRandom);
+          loadTrack(nextTrack);
         }
       }
 
@@ -1277,95 +1509,135 @@
         if (currentTrackIndex > 0) {
           currentTrackIndex--;
           loadTrack(currentQueue[currentTrackIndex]);
-        }
-      }
-
-      function setPlayState(playing) {
-        isPlaying = playing;
-        document.getElementById('play-btn').innerText = playing ? '❚❚' : '▶';
-
-        if (playing) {
-          if (!progressTimer) progressTimer = setInterval(updateProgress, 500);
         } else {
-          clearInterval(progressTimer);
-          progressTimer = null;
-        }
-        renderHomeTracks();
-      }
-
-      function formatTime(sec) {
-        if (isNaN(sec) || sec < 0) return '0:00';
-        const m = Math.floor(sec / 60);
-        const s = Math.floor(sec % 60);
-        return `${m}:${s < 10 ? '0' : ''}${s}`;
-      }
-
-      function updateProgress() {
-        if (!ytPlayer || !ytPlayer.getCurrentTime) return;
-        const cur = ytPlayer.getCurrentTime() || 0;
-        const dur = ytPlayer.getDuration() || 0;
-
-        document.getElementById('current-time').innerText = formatTime(cur);
-        document.getElementById('total-time').innerText = formatTime(dur);
-
-        if (dur > 0) {
-          document.getElementById('scrubber').value = (cur / dur) * 100;
+          ytPlayer.seekTo(0, true);
         }
       }
 
-      function seekTrack(val) {
-        if (!ytPlayer || !ytPlayer.getDuration) return;
-        const dur = ytPlayer.getDuration();
-        if (dur > 0) {
-          const target = (val / 100) * dur;
-          ytPlayer.seekTo(target, true);
-        }
-      }
+          <!-- EXPLORER -->
+    <div id="tab-explore" class="tab-content">
+      <h2 class="section-title">Explorer</h2>
+      <p class="section-desc">Recherche simultanée YouTube & SoundCloud</p>
+      <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="Titre, artiste, univers..." onkeydown="if(event.key==='Enter') app.executeUnifiedSearch()">
+        <button class="search-btn-icon" onclick="app.executeUnifiedSearch()">🔍</button>
+      </div>
+      <div class="filter-pills">
+        <button class="pill active" onclick="app.setSearchFilter('all', this)">Tous</button>
+        <button class="pill" onclick="app.setSearchFilter('youtube', this)">YouTube</button>
+        <button class="pill" onclick="app.setSearchFilter('soundcloud', this)">SoundCloud</button>
+      </div>
+      <div id="searchStatus" class="search-status"></div>
+      <div id="explore-results-list" class="track-list"></div>
+    </div>
 
-      return {
-        init: init,
-        switchTab: switchTab,
-        launchMood: launchMood,
-        executeUnifiedSearch: executeUnifiedSearch,
-        setSearchFilter: setSearchFilter,
-        createCollection: createCollection,
-        deleteCollection: deleteCollection,
-        viewCollection: viewCollection,
-        backToCollections: backToCollections,
-        openHeartModal: openHeartModal,
-        openHeartModalForCurrent: openHeartModalForCurrent,
-        closeHeartModal: closeHeartModal,
-        saveHeartAssignments: saveHeartAssignments,
-        playIndex: playIndex,
-        playSingleTrack: playSingleTrack,
-        playFromSpecificList: playFromSpecificList,
-        togglePlay: togglePlay,
-        playNext: playNext,
-        playPrev: playPrev,
-        seekTrack: seekTrack,
-        onStateChange: function(e) {
-          if (e.data === 0) playNext();
-          else if (e.data === 1) setPlayState(true);
-          else if (e.data === 2) setPlayState(false);
-        },
-        setReady: function(p) { ytPlayer = p; }
-      };
-    })();
+    <!-- COLLECTIONS -->
+    <div id="tab-collections" class="tab-content">
+      <div id="col-main-view">
+        <h2 class="section-title">Mes Collections</h2>
+        <p class="section-desc">Vos univers personnalisés</p>
+        <div class="create-col-bar">
+          <input type="text" id="newColInput" class="input-col-name" placeholder="Nom de la collection...">
+          <button class="btn-create-col" onclick="app.createCollection()">Créer</button>
+        </div>
+        <div id="collections-grid" class="col-grid"></div>
+      </div>
 
-    function onYouTubeIframeAPIReady() {
-      new YT.Player('ytplayer', {
-        height: '1',
-        width: '1',
-        videoId: '5NV6Rdv1a3I',
-        playerVars: { 'playsinline': 1, 'controls': 0, 'rel': 0 },
-        events: {
-          'onReady': function(e) { app.setReady(e.target); },
-          'onStateChange': function(e) { app.onStateChange(e); }
-        }
-      });
-    }
+      <div id="col-detail-view" class="col-detail-view">
+        <div class="col-detail-header">
+          <button class="btn-back-col" onclick="app.backToCollections()">← Retour</button>
+          <button class="btn-play-all-col" onclick="app.playEntireCollection()">Tout Lire ▶</button>
+        </div>
+        <h2 id="detail-col-name" class="section-title" style="margin-bottom: 16px;"></h2>
+        <div id="col-tracks-list" class="track-list"></div>
+      </div>
+    </div>
+  </main>
 
-    document.addEventListener('DOMContentLoaded', app.init);
-  </script>
-</body>
-</html>
+  <!-- LECTEUR DOCK BAS -->
+  <div class="player-dock">
+    <div class="scrubber-container">
+      <span class="time-label" id="time-current">0:00</span>
+      <input type="range" class="scrubber" id="scrubber" min="0" max="100" value="0" oninput="app.seekTrack(this.value)">
+      <span class="time-label" id="time-duration">0:00</span>
+    </div>
+    <div class="player-main">
+      <div class="player-track-info" onclick="app.openFullscreenPlayer()">
+        <img id="player-thumb" class="player-thumb" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400" alt="Pochette">
+        <div class="player-meta">
+          <div class="player-title" id="player-title">Prêt pour l'écoute</div>
+          <div class="player-sub" id="player-artist">ONDE Pure Sound</div>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="btn-action" onclick="app.openHeartModalForCurrent()">♡</button>
+        <button class="btn-action" onclick="app.playPrev()">⏮</button>
+        <button class="btn-action btn-play-circle" id="playBtn" onclick="app.togglePlay()">▶</button>
+        <button class="btn-action" onclick="app.playNext()">⏭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION IPHONE -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="app.switchTab('home', this)">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      <span>Accueil</span>
+    </button>
+    <button class="nav-item" onclick="app.switchTab('explore', this)">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span>Explorer</span>
+    </button>
+    <button class="nav-item" onclick="app.switchTab('collections', this)">
+      <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+      <span>Collections</span>
+    </button>
+  </nav>
+
+  <!-- GRAND LECTEUR PLEIN ÉCRAN -->
+  <div id="fullscreenPlayer" class="fullscreen-player">
+    <div class="fs-header">
+      <button class="fs-close-btn" onclick="app.closeFullscreenPlayer()">⌄</button>
+      <span class="fs-badge" id="fs-source-badge">ONDE MASTER</span>
+      <button class="btn-action" style="font-size: 1.4rem;" onclick="app.openHeartModalForCurrent()">♡</button>
+    </div>
+    <div class="fs-artwork-container">
+      <img id="fs-artwork" class="fs-artwork" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400" alt="Album Art">
+    </div>
+    <div class="fs-details">
+      <div class="fs-title" id="fs-title">Titre du morceau</div>
+      <div class="fs-artist" id="fs-artist">Artiste</div>
+    </div>
+    <div class="fs-scrubber-box">
+      <input type="range" class="scrubber" id="fsScrubber" min="0" max="100" value="0" oninput="app.seekTrack(this.value)">
+      <div class="fs-time-row">
+        <span id="fs-time-cur">0:00</span>
+        <span id="fs-time-dur">0:00</span>
+      </div>
+    </div>
+    <div class="fs-controls-main">
+      <button class="fs-btn-nav" onclick="app.playPrev()">⏮</button>
+      <button class="fs-btn-circle" id="fsPlayBtn" onclick="app.togglePlay()">▶</button>
+      <button class="fs-btn-nav" onclick="app.playNext()">⏭</button>
+    </div>
+    <div class="fs-actions-bottom">
+      <button class="fs-extra-btn" id="fs-loop-btn" onclick="app.toggleLoop()">
+        <span>🔁</span> <span id="loop-label">Boucle : Off</span>
+      </button>
+      <button class="fs-extra-btn" onclick="app.findSimilarTracks()">
+        <span>✨</span> <span>Similaires</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MODALE CŒUR -->
+  <div id="heartModal" class="modal-overlay" onclick="if(event.target===this) app.closeHeartModal()">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <h3 class="modal-title">Ajouter à une collection</h3>
+        <button class="modal-close-btn" onclick="app.closeHeartModal()">✕</button>
+      </div>
+      <div class="modal-list" id="modal-collections-list"></div>
+      <button class="btn-modal-save" onclick="app.saveHeartAssignments()">Enregistrer</button>
+    </div>
+  </div>
